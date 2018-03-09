@@ -1,0 +1,19 @@
+
+  .photo-links{
+    padding-top: 2em;
+  }
+  
+  .photo-links a{
+    color: #b2b0b9;
+    font-size: 22px;
+    text-decoration: none;
+    padding: 1.5em;
+  }
+  
+  .photos{
+    padding-top: 2em;
+  }
+  
+  .photos img{
+    margin: 5px;
+  }

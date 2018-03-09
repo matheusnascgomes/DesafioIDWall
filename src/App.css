@@ -18,8 +18,19 @@
   font-size: large;
 }
 
-.main {
-  background-color: #b2b0b9;
+.validate-section {
+  background-color: #e2e1e5;
   color: #20356d;
   height: 350px;
 }
+
+.validate-section .title{
+  font-size: 30px;
+  padding-top: 2em;
+  font-weight: bolder;
+}
+
+.photo-section{
+  background-color: #2a3964;
+  height: 500px;
+} 

@@ -7,7 +7,7 @@ FormControl,
 ButtonToolbar,
 Button } from 'react-bootstrap';
 
-import StyleFormValidate from './StyleFormValidate.css';
+import FormValidateStyle from './FormValidateStyle.css';
 
 class FormValidate extends Component {
 
