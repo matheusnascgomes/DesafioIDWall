@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 import Header from './Header';
 import FormValidate from './FormValidate';
@@ -9,9 +9,10 @@ import Footer from './Footer';
 import './styles/App.css';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="app">
+      <Grid className="app">
 
         <Header />
 
@@ -31,7 +32,7 @@ class App extends Component {
         <Grid className="footer-section">
           <Footer />
         </Grid>
-      </div>
+      </Grid>
     );
   }
 }

@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             <Row className="show-grid">
                 <Col ><img src={logo} className="" alt="logo" /></Col>
-                <Col className="footer-title" >© 2017 Matheus Is Proudly Powered By Matheus Gomes.</Col>
+                <Col className="footer-title" >© 2018 Matheus Is Proudly Powered By Matheus Gomes.</Col>
                 <Col >Redes Sociais</Col>
             </Row>
         );
