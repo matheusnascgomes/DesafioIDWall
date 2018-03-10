@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
 
-import logo from './res/logo.png';
+import Header from './Header';
 import FormValidate from './FormValidate';
 import PhotoSection from './PhotoSection';
+import Footer from './Footer';
 
-import './App.css';
+import './styles/App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <header className="app-header">
-          <img src={logo} className="app-logo" alt="logo" />
-          <h1 className="app-title">Desafio IDDOG</h1>
-        </header>
+
+        <Header />
+
         <Grid className="validate-section">
             <Row className="show-grid">
                <Col className="title" sm={12} md={6} mdOffset={3}>
@@ -26,6 +26,10 @@ class App extends Component {
 
         <Grid className="photo-section">
             <PhotoSection />
+        </Grid>
+
+        <Grid className="footer-section">
+          <Footer />
         </Grid>
       </div>
     );

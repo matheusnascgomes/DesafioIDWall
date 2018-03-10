@@ -34,3 +34,10 @@
   background-color: #2a3964;
   height: 500px;
 } 
+
+/* FOOTER */
+.footer-section{
+  height: 150px;
+  background-color: #313f68;
+  padding-top: 2em;
+}

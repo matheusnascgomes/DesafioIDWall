@@ -11,3 +11,12 @@ input{
     font-size: 20px;
     margin-bottom: 2em;
 }
+
+button{
+    background-color: #2a3964;
+    color: #b2b3c0;
+    padding: .5em;
+    width: 200px;
+    font-size: 18px;
+    font-weight: bolder;
+}
