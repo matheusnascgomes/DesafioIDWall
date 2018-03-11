@@ -1,4 +1,14 @@
-
+.validate-section {
+    background-color: #e2e1e5;
+    color: #20356d;
+    height: 350px;
+  }
+  
+.validate-section .title{
+    font-size: 30px;
+    padding-top: 2em;
+    font-weight: bolder;
+}
 form{
     padding-top: 2em;
 }
@@ -20,3 +30,4 @@ button{
     font-size: 18px;
     font-weight: bolder;
 }
+

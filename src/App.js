@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
 
 import Header from './Header';
 import FormValidate from './FormValidate';
@@ -16,22 +16,12 @@ class App extends Component {
 
         <Header />
 
-        <Grid className="validate-section">
-            <Row className="show-grid">
-               <Col className="title" sm={12} md={6} mdOffset={3}>
-                  Autentique-se
-                  <FormValidate />
-               </Col>
-            </Row>
-        </Grid>
+        <FormValidate />
 
-        <Grid className="photo-section">
-            <PhotoSection />
-        </Grid>
-
-        <Grid className="footer-section">
-          <Footer />
-        </Grid>
+        <PhotoSection /> 
+      
+        <Footer />
+        
       </Grid>
     );
   }
