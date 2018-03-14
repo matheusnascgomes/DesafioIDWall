@@ -9,6 +9,12 @@
     padding-top: 2em;
     font-weight: bolder;
 }
+
+.validate-section .title p{
+    font-size: 24px;
+    color: #31860f;
+}
+
 form{
     padding-top: 2em;
 }

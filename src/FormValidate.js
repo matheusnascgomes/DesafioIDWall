@@ -13,7 +13,7 @@ class FormValidate extends Component {
         super(props);
         this.state = {
             email: '',
-            token: '',
+            token:  '',
             errorMessage: ''
         }
 
@@ -34,10 +34,24 @@ class FormValidate extends Component {
              "email": this.state.email
         }).then(res => {
             this.setState({ email: res.data.user.email, token: res.data.user.token });
-            console.log(this.state);
         }).catch(err => this.setState({ errorMessage: err }));
 
         e.preventDefault();
+    }
+
+    componentWillMount(){
+        localStorage.getItem('email') 
+        ? this.setState({ email: localStorage.getItem('email') }) 
+        : this.setState({ email: '' });
+
+        localStorage.getItem('token') 
+        ? this.setState({ token: localStorage.getItem('token') }) 
+        : this.setState({ token: '' });
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem('email', nextState.email);
+        localStorage.setItem('token', nextState.token);
     }
 
     render() {
@@ -48,6 +62,7 @@ class FormValidate extends Component {
         {(this.state.email !== '' && this.state.token !== '') ?
         
             <Col className="title" sm={12} md={6} mdOffset={3}>
+                <h4>Validado com sucesso!</h4>
                 <p>{this.state.email}</p>
             </Col>
         : 
