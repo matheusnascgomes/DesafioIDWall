@@ -32,7 +32,8 @@ class FormValidate extends Component {
             },
              "email": this.state.email
         }).then(res => {
-            console.log(res);
+            
+            console.log(res.data.user.token);
         });
 
         e.preventDefault();
