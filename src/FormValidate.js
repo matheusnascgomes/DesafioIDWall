@@ -13,6 +13,7 @@ class FormValidate extends Component {
         super(props);
         this.state = {
             email: '',
+            token: '',
             errorMessage: ''
         }
 
@@ -32,9 +33,9 @@ class FormValidate extends Component {
             },
              "email": this.state.email
         }).then(res => {
-            
-            console.log(res.data.user.token);
-        });
+            this.setState({ email: res.data.user.email, token: res.data.user.token });
+            console.log(this.state);
+        }).catch(err => this.setState({ errorMessage: err }));
 
         e.preventDefault();
     }
@@ -44,6 +45,12 @@ class FormValidate extends Component {
             
         <Grid className="validate-section">
         <Row className="show-grid">
+        {(this.state.email !== '' && this.state.token !== '') ?
+        
+            <Col className="title" sm={12} md={6} mdOffset={3}>
+                <p>{this.state.email}</p>
+            </Col>
+        : 
             <Col className="title" sm={12} md={6} mdOffset={3}>
                 Autentique-se
                 
@@ -55,8 +62,8 @@ class FormValidate extends Component {
                     </FormGroup>
                     <Button bsStyle="success" type="submit">Validar</Button>
                 </form>
-
-                </Col>
+            </Col>
+        }  
             </Row>
         </Grid>
 
