@@ -51,31 +51,21 @@ class PhotoSection extends Component {
             <Grid className="photo-section">
                 <Row className="show-grid">
                     <Col className="photo-links" sm={12} md={6} mdOffset={3}>
-                        <button 
-                            onClick={this.handleChoice}
-                            value="husky"
-                        >husky</button>
-
-                        <button 
-                            onClick={this.handleChoice}
-                            value="hound"
-                        >hound</button>
-
-                        <button 
-                            onClick={this.handleChoice}
-                            value="pug"
-                        >pug</button>
-
-                        <button 
-                            onClick={this.handleChoice}
-                            value="labrador"
-                        >labrator</button>
-                        
+                        <button onClick={this.handleChoice} value="husky" >husky</button>
+                        <button onClick={this.handleChoice} value="hound" >hound</button>
+                        <button onClick={this.handleChoice} value="pug" >pug</button>
+                        <button onClick={this.handleChoice} value="labrador" >labrator</button>
                     </Col>
                     <Col className="photos" md={12}> 
-                        <Row>
-                        <Image src="http://via.placeholder.com/350x150" thumbnail />
-                        </Row>
+                        
+                        {
+                            this.state.dogList.map(photo => (
+                            <div key={photo}>
+                                <Image src={photo} rounded width="350" height="350"/>
+                            </div>
+                        ))
+                        }
+                        
                     </Col>
                 </Row>
             </Grid>

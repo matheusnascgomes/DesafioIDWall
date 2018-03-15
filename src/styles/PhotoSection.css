@@ -2,21 +2,26 @@
   background-color: #2a3964;
   padding-bottom: 2em;
 } 
+
 .photo-links{
   padding-top: 2em;
 }
 
-.photo-links a{
-  color: #b2b0b9;
-  font-size: 22px;
-  text-decoration: none;
-  padding: 1.5em;
+.photo-links button{
+  border: 1px solid #2a3964;
+}
+
+.photo-links button:focus{
+  background-color: #3f4c74;
 }
 
 .photos{
   padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
 }
 
 .photos img{
-  margin: 5px;
+  margin: 2px;
 }
