@@ -22,6 +22,21 @@ class FormValidate extends Component {
           
     }
 
+    componentWillMount(){
+        localStorage.getItem('email') 
+        ? this.setState({ email: localStorage.getItem('email') }) 
+        : this.setState({ email: '' });
+
+        localStorage.getItem('token') 
+        ? this.setState({ token: localStorage.getItem('token') }) 
+        : this.setState({ token: '' });
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem('email', nextState.email);
+        localStorage.setItem('token', nextState.token);
+    }    
+
     handleChange(e){
         this.setState({ email: e.target.value });
     }
@@ -37,21 +52,6 @@ class FormValidate extends Component {
         }).catch(err => this.setState({ errorMessage: err }));
 
         e.preventDefault();
-    }
-
-    componentWillMount(){
-        localStorage.getItem('email') 
-        ? this.setState({ email: localStorage.getItem('email') }) 
-        : this.setState({ email: '' });
-
-        localStorage.getItem('token') 
-        ? this.setState({ token: localStorage.getItem('token') }) 
-        : this.setState({ token: '' });
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        localStorage.setItem('email', nextState.email);
-        localStorage.setItem('token', nextState.token);
     }
 
     render() {

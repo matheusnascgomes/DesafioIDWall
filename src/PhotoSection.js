@@ -1,27 +1,79 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
+import axios from 'axios';
 
 import './styles/PhotoSection.css';
 
+const URL = 'https://iddog-api.now.sh/feed/';
+
 class PhotoSection extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            TOKEN: localStorage.getItem('token'),
+            dogList: [],
+            errorMessage: ''
+        }
+
+        this.randerPhotos = this.randerPhotos.bind(this);
+        this.handleChoice = this.handleChoice.bind(this);
+
+        this.randerPhotos();
+    }
+
+    randerPhotos(category = ''){
+
+        axios.get(`${URL}?category=${category}`,{
+                headers: {
+                    "Authorization": this.state.TOKEN,
+                    "Content-Type": "application/json",
+                }
+            }      
+        )
+        .then(res => (
+            this.setState({ dogList: res.data.list })
+        ))
+        .catch(err => {
+            this.setState({ errorMessage: err });
+            console.log(this.state.errorMessage);
+        });
+
+        console.log(this.state.dogList);
+    }
+
+    handleChoice(e){
+        this.randerPhotos(e.target.value);
+    }
 
     render(){
         return(
             <Grid className="photo-section">
                 <Row className="show-grid">
                     <Col className="photo-links" sm={12} md={6} mdOffset={3}>
-                        <a href="" >Husky</a>
-                        <a href="" >Labrador</a>
-                        <a href="" >Hound</a>
-                        <a href="" >Pug</a>
+                        <button 
+                            onClick={this.handleChoice}
+                            value="husky"
+                        >husky</button>
+
+                        <button 
+                            onClick={this.handleChoice}
+                            value="hound"
+                        >hound</button>
+
+                        <button 
+                            onClick={this.handleChoice}
+                            value="pug"
+                        >pug</button>
+
+                        <button 
+                            onClick={this.handleChoice}
+                            value="labrador"
+                        >labrator</button>
+                        
                     </Col>
                     <Col className="photos" md={12}> 
                         <Row>
-                        <Image src="http://via.placeholder.com/350x150" thumbnail />
-                        <Image src="http://via.placeholder.com/350x150" thumbnail />
-                        <Image src="http://via.placeholder.com/350x150" thumbnail />
-                        <Image src="http://via.placeholder.com/350x150" thumbnail />
-                        <Image src="http://via.placeholder.com/350x150" thumbnail />
                         <Image src="http://via.placeholder.com/350x150" thumbnail />
                         </Row>
                     </Col>
