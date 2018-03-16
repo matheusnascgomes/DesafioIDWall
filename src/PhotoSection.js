@@ -11,7 +11,7 @@ class PhotoSection extends Component {
     constructor(props){
         super(props);
         this.state = {
-            TOKEN: localStorage.getItem('token'),
+            TOKEN: this.props.token,
             dogList: [],
             errorMessage: ''
         }
@@ -38,8 +38,6 @@ class PhotoSection extends Component {
             this.setState({ errorMessage: err });
             console.log(this.state.errorMessage);
         });
-
-        console.log(this.state.dogList);
     }
 
     handleChoice(e){

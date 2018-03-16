@@ -3,7 +3,7 @@ import { Grid } from 'react-bootstrap';
 
 import Header from './Header';
 import FormValidate from './FormValidate';
-import PhotoSection from './PhotoSection';
+// import PhotoSection from './PhotoSection';
 import Footer from './Footer';
 
 import './styles/App.css';
@@ -18,7 +18,7 @@ class App extends Component {
 
         <FormValidate />
 
-        <PhotoSection /> 
+        {/* <PhotoSection />  */}
       
         <Footer />
         

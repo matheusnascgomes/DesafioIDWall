@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { form, FormGroup, FormControl, Button, Grid, Row, Col } from 'react-bootstrap';
 
+import PhotoSection from './PhotoSection';
 import './styles/FormValidate.css';
 
 const URL = 'https://iddog-api.now.sh/';
@@ -56,32 +57,35 @@ class FormValidate extends Component {
 
     render() {
     return (
-            
+        (this.state.email !== '' && this.state.token !== '') ?
+        <div>
         <Grid className="validate-section">
-        <Row className="show-grid">
-        {(this.state.email !== '' && this.state.token !== '') ?
-        
-            <Col className="title" sm={12} md={6} mdOffset={3}>
-                <h4>Validado com sucesso!</h4>
-                <p>{this.state.email}</p>
-            </Col>
-        : 
-            <Col className="title" sm={12} md={6} mdOffset={3}>
-                Autentique-se
-                
-                <form onSubmit={this.handleSubmit} >
-                    <FormGroup controlId="">
-                        <FormControl type="email" placeholder="Insira seu email"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <Button bsStyle="success" type="submit">Validar</Button>
-                </form>
-            </Col>
-        }  
+            <Row className="show-grid">
+                <Col className="title" sm={12} md={6} mdOffset={3}>
+                    <h4>Validado com sucesso!</h4>
+                    <p>{this.state.email}</p>
+                </Col>
             </Row>
         </Grid>
-
+        <PhotoSection token={this.state.token} />
+        </div>
+        :   
+        <Grid className="validate-section">
+            <Row className="show-grid">
+                <Col className="title" sm={12} md={6} mdOffset={3}>
+                    Autentique-se
+                    
+                    <form onSubmit={this.handleSubmit} >
+                        <FormGroup controlId="">
+                            <FormControl type="email" placeholder="Insira seu email"
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+                        <Button bsStyle="success" type="submit">Validar</Button>
+                    </form>
+                </Col>
+            </Row>
+        </Grid> 
         );
     }
 }
